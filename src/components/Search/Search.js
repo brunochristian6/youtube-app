@@ -7,14 +7,15 @@ class Search extends Component {
     this.setState({ text: e.target.value });
   };
 
-  // onSubmit = e => {
-  //   e.preventDefault();
-  //   this.setState({ name: this.state.text, text: "" });
-  // };
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.text);
+    this.setState({ text: "" });
+  };
   render() {
     return (
       <div className="search-bar ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onSubmit} className="ui form">
           <div className="form-group">
             <input
               className="form-control"
